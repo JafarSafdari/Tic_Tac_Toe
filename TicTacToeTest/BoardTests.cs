@@ -21,10 +21,8 @@ public class BoardTests
         var board = new Board();
         var marker = 'X';
 
-        // Försök att placera markören i den första cellen
         var result = board.PlaceMarker(0, 0, marker);
 
-        // Testa att det lyckades och cellen nu har markerat värde
         Assert.True(result);
         Assert.Equal(marker, board.GetCells()[0, 0]);
     }
