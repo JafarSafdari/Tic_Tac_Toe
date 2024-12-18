@@ -1,34 +1,16 @@
-﻿namespace TicTacToe
+﻿namespace TicTacToe;
+
+public class Board
 {
-    public class Board
+    private char[,] cells = new char[3, 3];
+
+    public bool IsEmpty()
     {
-        private const int Size = 3;
-        private char[,] _cells;
-
-        public Board()
+        foreach (var cell in cells)
         {
-            _cells = new char[Size, Size];
-            for (int i = 0; i < Size; i++)
-            {
-                for (int j = 0; j < Size; j++)
-                {
-                    _cells[i, j] = ' ';
-                }
-            }
+            if (cell != ' ') return false; // Cell should be empty (' ')
         }
 
-        public char[,] GetCells()
-        {
-            return _cells;
-        }
-
-        public bool PlaceMarker(int x, int y, char marker)
-        {
-            if (_cells[x, y] != ' ')
-                return false;
-
-            _cells[x, y] = marker;
-            return true;
-        }
+        return true;
     }
 }

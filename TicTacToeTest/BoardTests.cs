@@ -5,25 +5,12 @@ namespace TicTacToeTest;
 public class BoardTests
 {
     [Fact]
-    public void Board_Should_Be_Initialized_With_Empty_Values()
+    public void Should_InitializeBoard_Empty()
     {
         var board = new Board();
-        var cells = board.GetCells();
-
-        var flatCells = cells.Cast<char>();
-
-        Assert.All(flatCells, cell => Assert.Equal(' ', cell));
+        var isEmpty = board.IsEmpty();  // Assume we have a method to check if the board is empty.
+    
+        Assert.True(isEmpty);
     }
-
-    [Fact]
-    public void PlaceMarker_Should_Update_Cell()
-    {
-        var board = new Board();
-        var marker = 'X';
-
-        var result = board.PlaceMarker(0, 0, marker);
-
-        Assert.True(result);
-        Assert.Equal(marker, board.GetCells()[0, 0]);
-    }
+    
 }
